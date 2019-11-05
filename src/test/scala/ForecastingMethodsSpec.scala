@@ -54,6 +54,15 @@ class ForecastingMethodsSpec extends FreeSpec with MustMatchers {
     }
   }
 
+  "Double Exponential Smoothing" - {
+    "when given a high alpha and high beta" - {
+      "should calculate the average correctly" in {
+        ForecastingMethods.doubleExponentialSmoothing(inputSequence, 0.9, 0.9) mustEqual
+          Seq(3, 17.0, 15.45, 14.210500000000001, 11.396044999999999, 8.183803049999998, 12.753698384500002/*, 13.889016464000003*/) //why an extra point?
+      }
+    }
+  }
+
 
 
 }
